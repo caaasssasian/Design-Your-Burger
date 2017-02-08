@@ -7,7 +7,7 @@
 <body>
     
 <?php
-    // store the form inputs into variables
+    // store user's details as variables
     $name = $_POST['name'];
     $country = $_POST['country'];
     $email = $_POST['email'];
@@ -18,9 +18,10 @@
     $meat = $_POST['meat'];
     $sauce = $_POST['sauce'];
     $accept_emails = $_POST['accept_emails'];
-    // variable to indicate if there are 1 or more input errors
+    // form is valid for now
     $ok = true;
-    // validate the inputs before saving
+    // validating inputs before storing results
+    // if text inputs are empty/invalid, display error
     if (empty($name)) {
         echo 'Name is required<br />';
         $ok = false;
@@ -37,10 +38,11 @@
         echo 'Please enter a correct email<br />';
         $ok = false;
     }
+    // if text inputs are valid, proceed to storing results
     if ($ok == true) {
-        // connect to db - dbtype, server address, dbname, username, password
+        // connect
         $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-        // set up an SQL instruction to save the new album - INSERT
+        // inserting each input into database
         $sql = "INSERT INTO burger_ideas (name, country, email, buns, vegetable1, vegetable2, cheese, meat, sauce, accept_emails) VALUES (:name, :country, :email, :buns, :vegetable1, :vegetable2, :cheese, :meat, :sauce, :accept_emails);";
         // pass the input variables to the SQL command
         $cmd = $conn->prepare($sql);
@@ -54,12 +56,13 @@
         $cmd->bindParam(':meat', $meat, PDO::PARAM_STR, 100);
         $cmd->bindParam(':sauce', $sauce, PDO::PARAM_STR, 100);
         $cmd->bindParam(':accept_emails', $accept_emails, PDO::PARAM_STR, 5);
-        // execute the INSERT
+        // executing the inserted values
         $cmd->execute();
         // disconnect
         $conn = null;
-        // show a message to the user
-        echo 'Thank you for your ideas! Check out other burger ideas from other people.';
+        // display thank you message and lead users to the table of burger ideas
+        echo 'Thank you for your ideas! Check out other burger ideas from other people.<br />';
+        echo '<a href="http://comp1006-cassidyho.azurewebsites.net/comp1006-assignment1/view-burger.php">Click here to see other ideas from burger lovers across the world!</a>';
     }
 ?>
 

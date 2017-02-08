@@ -15,16 +15,16 @@
 $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
 
 // set up query
-$sql = "SELECT country, buns, vegetable1, vegetable2, cheese, meat, sauce FROM customer_orders";
+$sql = "SELECT country, buns, vegetable1, vegetable2, cheese, meat, sauce FROM burger_ideas";
 
 // run query and store results
 $cmd = $conn->prepare($sql);
 $cmd->execute();
 $orders = $cmd->FetchAll();
 
-// start table and headings
+// start of table
 echo '<table class="table table-bordered">
-        <tr>
+        <tr class="success">
             <th>Country</th>
             <th>Buns</th>
             <th>Vegetable1</th>
@@ -36,8 +36,7 @@ echo '<table class="table table-bordered">
 
 // loop through data
 foreach ($orders as $order) {
-    // print each album as a new row
-    echo '<tr><td>' . $order['country'] . '</td>
+    echo '<tr class="success"><td>' . $order['country'] . '</td>
     <td>' . $order['buns'] . '</td>
     <td>' . $order['vegetable1'] . '</td>
     <td>' . $order['vegetable2'] . '</td>
@@ -46,7 +45,6 @@ foreach ($orders as $order) {
     <td>' . $order['sauce'] . '</td></tr>';
 }
 
-// end table
 echo '</table>';
 
 

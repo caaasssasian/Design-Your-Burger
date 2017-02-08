@@ -38,13 +38,13 @@
                             // set up & run query & store results
                             $sql = "SELECT buns FROM burger";
 
-                            // loop through the data
+                            // loop through data
                             $cmd = $conn->prepare($sql);
                             $cmd->execute();
                             $buns = $cmd->fetchAll();
 
                             foreach ($buns as $bun) {
-                                // display each artist inside <option></option> tags
+                                // display each bun inside <option></option> tags
                                 echo '<option>' . $bun['buns'] . '</option>';
                             }
                             
@@ -69,7 +69,7 @@
                             $vegetables1 = $cmd->fetchAll();
 
                             foreach ($vegetables1 as $vegetable1) {
-                                // display each artist inside <option></option> tags
+                                // display first set of vegetables inside <option></option> tags
                                 echo '<option>' . $vegetable1['vegetable1'] . '</option>';
                             }
                             
@@ -94,7 +94,7 @@
                             $vegetables2 = $cmd->fetchAll();
 
                             foreach ($vegetables2 as $vegetable2) {
-                                // display each artist inside <option></option> tags
+                                // display each second set of vegetables inside <option></option> tags
                                 echo '<option>' . $vegetable2['vegetable2'] . '</option>';
                             }
                             
@@ -119,7 +119,7 @@
                             $cheeses = $cmd->fetchAll();
 
                             foreach ($cheeses as $cheese) {
-                                // display each artist inside <option></option> tags
+                                // display types of cheese inside <option></option> tags
                                 echo '<option>' . $cheese['cheese'] . '</option>';
                             }
                             
@@ -144,7 +144,7 @@
                             $meats = $cmd->fetchAll();
 
                             foreach ($meats as $meat) {
-                                // display each artist inside <option></option> tags
+                                // display types of meat inside <option></option> tags
                                 echo '<option>' . $meat['meat'] . '</option>';
                             }
                             
@@ -169,7 +169,7 @@
                             $sauces = $cmd->fetchAll();
 
                             foreach ($sauces as $sauce) {
-                                // display each artist inside <option></option> tags
+                                // display types of sauces inside <option></option> tags
                                 echo '<option>' . $sauce['sauce'] . '</option>';
                             }
                             
@@ -181,6 +181,7 @@
                     <div>  
                         <p>Receive emails from us?</p>                 
                         <label for="accept_yes">Yes</label>
+                        // assign values to store in database when users choose between 'yes' and 'no'
                         <input type="radio" id="accept_yes" name="accept_emails" value="yes" />                    
                         <label for="accept_no">No</label>
                         <input type="radio" id="accept_no" name="accept_emails" value="no" />
