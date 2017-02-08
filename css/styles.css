@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+body {
+    margin-left: 1em;    
+}
+
+form {
+    border: 2px solid lightslategrey;
+    width: 95%;
+    padding: 1.1em;
+}

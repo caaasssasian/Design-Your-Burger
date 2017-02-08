@@ -3,24 +3,30 @@
     <head>
         <meta charset="utf-8" />
         <title>Design Our Future Burger!</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <header>
             <h1>Design Our Future Burger!</h1>
             <p>Enter your burger ideas below and we might pick your burger for our menu!</p>
+        </header>
             <form method="post" action="save-burger.php">
                 <fieldset>
-                    <div>
+                    <div class="form-group">
                         <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" />
+                        <input class="form-control" type="text" id="name" name="name" />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label for="country">Country:</label>
-                        <input type="text" id="country" name="country" required />
+                        <input class="form-control" type="text" id="country" name="country" required />
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
+                        <input class="form-control" type="email" id="email" name="email" required />
                     </div>
                     <div>
                         <label for="buns">Type of Bun</label>
@@ -172,9 +178,12 @@
                             ?>                              
                         </select>
                     </div>
-                    <button>Order Now</button>
+                    <button class="btn btn-success">Order Now</button>
                 </fieldset>
             </form>
-        </header>
+        <!-- Latest   jQuery -->
+        <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </body>
 </html>
