@@ -18,15 +18,15 @@
                 <fieldset>
                     <div class="form-group">
                         <label for="name">Full Name:</label>
-                        <input class="form-control" type="text" id="name" name="name" />
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Enter Full Name" required />
                     </div>
                     <div class="form-group">
                         <label for="country">Country:</label>
-                        <input class="form-control" type="text" id="country" name="country" required />
+                        <input class="form-control" type="text" id="country" name="country" placeholder="Enter Your Country" required />
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input class="form-control" type="email" id="email" name="email" required />
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Eneter Email" required />
                     </div>
                     <div>
                         <label for="buns">Type of Bun</label>
