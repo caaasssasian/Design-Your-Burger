@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Eneter Email" required />
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter Email" required />
                     </div>
                     <div>
                         <label for="buns">Type of Bun</label>
@@ -177,8 +177,17 @@
                             $conn = null;
                             ?>                              
                         </select>
+                    </div> 
+                    <div>  
+                        <p>Receive emails from us?</p>                 
+                        <label for="accept_yes">Yes</label>
+                        <input type="radio" id="accept_yes" name="accept_emails" value="yes" />                    
+                        <label for="accept_no">No</label>
+                        <input type="radio" id="accept_no" name="accept_emails" value="no" />
+                    </div>   
+                    <div>
+                        <button class="btn btn-success">Order Now</button>
                     </div>
-                    <button class="btn btn-success">Order Now</button>
                 </fieldset>
             </form>
         <!-- Latest   jQuery -->

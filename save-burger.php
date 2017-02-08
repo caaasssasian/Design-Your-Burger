@@ -17,6 +17,7 @@
     $cheese = $_POST['cheese'];
     $meat = $_POST['meat'];
     $sauce = $_POST['sauce'];
+    $accept_emails = $_POST['accept_emails'];
     // variable to indicate if there are 1 or more input errors
     $ok = true;
     // validate the inputs before saving
@@ -32,11 +33,15 @@
         echo 'Email is required<br />';
         $ok = false;
     }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo 'Please enter a correct email<br />';
+        $ok = false;
+    }
     if ($ok == true) {
         // connect to db - dbtype, server address, dbname, username, password
         $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
         // set up an SQL instruction to save the new album - INSERT
-        $sql = "INSERT INTO customer_orders (name, country, email, buns, vegetable1, vegetable2, cheese, meat, sauce) VALUES (:name, :country, :email, :buns, :vegetable1, :vegetable2, :cheese, :meat, :sauce);";
+        $sql = "INSERT INTO burger_ideas (name, country, email, buns, vegetable1, vegetable2, cheese, meat, sauce, accept_emails) VALUES (:name, :country, :email, :buns, :vegetable1, :vegetable2, :cheese, :meat, :sauce, :accept_emails);";
         // pass the input variables to the SQL command
         $cmd = $conn->prepare($sql);
         $cmd->bindParam(':name', $name, PDO::PARAM_STR, 100);
@@ -48,6 +53,7 @@
         $cmd->bindParam(':cheese', $cheese, PDO::PARAM_STR, 100);
         $cmd->bindParam(':meat', $meat, PDO::PARAM_STR, 100);
         $cmd->bindParam(':sauce', $sauce, PDO::PARAM_STR, 100);
+        $cmd->bindParam(':accept_emails', $accept_emails, PDO::PARAM_STR, 5);
         // execute the INSERT
         $cmd->execute();
         // disconnect
