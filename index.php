@@ -181,7 +181,7 @@
                     <div>  
                         <p>Receive emails from us?</p>                 
                         <label for="accept_yes">Yes</label>
-                        // assign values to store in database when users choose between 'yes' and 'no'
+                        <!--assign values to store in database when users choose between 'yes' and 'no'-->
                         <input type="radio" id="accept_yes" name="accept_emails" value="yes" />                    
                         <label for="accept_no">No</label>
                         <input type="radio" id="accept_no" name="accept_emails" value="no" />
