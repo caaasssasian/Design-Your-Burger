@@ -32,149 +32,155 @@
                         <label for="buns">Type of Bun</label>
                         <select name="buns" id="buns">
                             <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT buns FROM burger";
+                            try {
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT buns FROM burger";
 
-                            // loop through data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $buns = $cmd->fetchAll();
+                                // loop through data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $buns = $cmd->fetchAll();
 
-                            foreach ($buns as $bun) {
-                                // display each bun inside <option></option> tags
-                                echo '<option>' . $bun['buns'] . '</option>';
+                                foreach ($buns as $bun) {
+                                    // display each bun inside <option></option> tags
+                                    echo '<option>' . $bun['buns'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
+                                ?>                              
+                            </select>
+                        </div>
+                        <div>
+                            <label for="vegetable1">Vegetable (First Choice)</label>
+                            <select name="vegetable1" id="vegetable1">
+                                <?php
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT vegetable1 FROM burger";
+
+                                // loop through the data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $vegetables1 = $cmd->fetchAll();
+
+                                foreach ($vegetables1 as $vegetable1) {
+                                    // display first set of vegetables inside <option></option> tags
+                                    echo '<option>' . $vegetable1['vegetable1'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
+                                ?>                              
+                            </select>
+                        </div>
+                        <div>
+                            <label for="vegetable2">Vegetable (Second Choice)</label>
+                            <select name="vegetable2" id="vegetable2">
+                                <?php
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT vegetable2 FROM burger";
+
+                                // loop through the data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $vegetables2 = $cmd->fetchAll();
+
+                                foreach ($vegetables2 as $vegetable2) {
+                                    // display each second set of vegetables inside <option></option> tags
+                                    echo '<option>' . $vegetable2['vegetable2'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
+                                ?>                              
+                            </select>
+                        </div>
+                        <div>
+                            <label for="cheese">Cheese</label>
+                            <select name="cheese" id="cheese">
+                                <?php
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT cheese FROM burger";
+
+                                // loop through the data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $cheeses = $cmd->fetchAll();
+
+                                foreach ($cheeses as $cheese) {
+                                    // display types of cheese inside <option></option> tags
+                                    echo '<option>' . $cheese['cheese'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
+                                ?>                              
+                            </select>
+                        </div>
+                        <div>
+                            <label for="meat">Meat</label>
+                            <select name="meat" id="meat">
+                                <?php
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT meat FROM burger";
+
+                                // loop through the data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $meats = $cmd->fetchAll();
+
+                                foreach ($meats as $meat) {
+                                    // display types of meat inside <option></option> tags
+                                    echo '<option>' . $meat['meat'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
+                                ?>                              
+                            </select>
+                        </div>
+                        <div>
+                            <label for="sauce">Sauce</label>
+                            <select name="sauce" id="sauce">
+                                <?php
+                                // connect
+                                $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
+                                
+                                // set up & run query & store results
+                                $sql = "SELECT sauce FROM burger";
+
+                                // loop through the data
+                                $cmd = $conn->prepare($sql);
+                                $cmd->execute();
+                                $sauces = $cmd->fetchAll();
+
+                                foreach ($sauces as $sauce) {
+                                    // display types of sauces inside <option></option> tags
+                                    echo '<option>' . $sauce['sauce'] . '</option>';
+                                }
+                                
+                                // disconnect
+                                $conn = null;
                             }
-                            
-                            // disconnect
-                            $conn = null;
-                            ?>                              
-                        </select>
-                    </div>
-                    <div>
-                        <label for="vegetable1">Vegetable (First Choice)</label>
-                        <select name="vegetable1" id="vegetable1">
-                            <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT vegetable1 FROM burger";
-
-                            // loop through the data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $vegetables1 = $cmd->fetchAll();
-
-                            foreach ($vegetables1 as $vegetable1) {
-                                // display first set of vegetables inside <option></option> tags
-                                echo '<option>' . $vegetable1['vegetable1'] . '</option>';
+                            catch (exception $e) {
+                                mail('cassidyctho@hotmail.com', 'Burger Form Error', $e);
+                                header('location:error.php');
                             }
-                            
-                            // disconnect
-                            $conn = null;
-                            ?>                              
-                        </select>
-                    </div>
-                    <div>
-                        <label for="vegetable2">Vegetable (Second Choice)</label>
-                        <select name="vegetable2" id="vegetable2">
-                            <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT vegetable2 FROM burger";
-
-                            // loop through the data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $vegetables2 = $cmd->fetchAll();
-
-                            foreach ($vegetables2 as $vegetable2) {
-                                // display each second set of vegetables inside <option></option> tags
-                                echo '<option>' . $vegetable2['vegetable2'] . '</option>';
-                            }
-                            
-                            // disconnect
-                            $conn = null;
-                            ?>                              
-                        </select>
-                    </div>
-                    <div>
-                        <label for="cheese">Cheese</label>
-                        <select name="cheese" id="cheese">
-                            <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT cheese FROM burger";
-
-                            // loop through the data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $cheeses = $cmd->fetchAll();
-
-                            foreach ($cheeses as $cheese) {
-                                // display types of cheese inside <option></option> tags
-                                echo '<option>' . $cheese['cheese'] . '</option>';
-                            }
-                            
-                            // disconnect
-                            $conn = null;
-                            ?>                              
-                        </select>
-                    </div>
-                    <div>
-                        <label for="meat">Meat</label>
-                        <select name="meat" id="meat">
-                            <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT meat FROM burger";
-
-                            // loop through the data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $meats = $cmd->fetchAll();
-
-                            foreach ($meats as $meat) {
-                                // display types of meat inside <option></option> tags
-                                echo '<option>' . $meat['meat'] . '</option>';
-                            }
-                            
-                            // disconnect
-                            $conn = null;
-                            ?>                              
-                        </select>
-                    </div>
-                    <div>
-                        <label for="sauce">Sauce</label>
-                        <select name="sauce" id="sauce">
-                            <?php
-                            // connect
-                            $conn = new PDO('mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=assignment1_comp1006', 'b3f6ff2f5424e3', '8805fe1c');
-                            
-                            // set up & run query & store results
-                            $sql = "SELECT sauce FROM burger";
-
-                            // loop through the data
-                            $cmd = $conn->prepare($sql);
-                            $cmd->execute();
-                            $sauces = $cmd->fetchAll();
-
-                            foreach ($sauces as $sauce) {
-                                // display types of sauces inside <option></option> tags
-                                echo '<option>' . $sauce['sauce'] . '</option>';
-                            }
-                            
-                            // disconnect
-                            $conn = null;
                             ?>                              
                         </select>
                     </div> 

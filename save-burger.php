@@ -7,6 +7,7 @@
 <body>
     
 <?php
+try {
     // store user's details as variables
     $name = $_POST['name'];
     $country = $_POST['country'];
@@ -64,6 +65,11 @@
         echo 'Thank you for your ideas! Check out other burger ideas from other people.<br />';
         echo '<a href="http://comp1006-cassidyho.azurewebsites.net/comp1006-assignment1/view-burger.php">Click here to see other ideas from burger lovers across the world!</a>';
     }
+}
+catch (exception $e) {
+    mail('cassidyctho@hotmail.com', 'Burger Save Error', $e);
+    header('location:error.php');
+}
 ?>
 
 </body>
